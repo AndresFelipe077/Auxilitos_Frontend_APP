@@ -4,18 +4,16 @@
     <item
         android:id="@+id/navigation_home"
         android:icon="@drawable/logo"
-        android:title="Logo"
-        android:iconTint="@color/black"
-        />
+        android:title="@string/title_home" />
 
     <item
         android:id="@+id/navigation_dashboard"
-        android:icon="@drawable/a"
-        android:title="Achuparla" />
+        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:title="@string/title_dashboard" />
 
     <item
         android:id="@+id/navigation_notifications"
-        android:icon="@drawable/bomberito_auxilitos"
-        android:title="bombero" />
+        android:icon="@drawable/ic_notifications_black_24dp"
+        android:title="@string/title_notifications" />
 
 </menu>

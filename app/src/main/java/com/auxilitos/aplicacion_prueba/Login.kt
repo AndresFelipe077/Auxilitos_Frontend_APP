@@ -15,21 +15,15 @@ class Login : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        /*var btn = findViewById<Button>(R.id.register);
-        var a = 1;
-        btn.setOnClickListener(View.OnClickListener {
-            Toast.makeText(this, "Holis", Toast.LENGTH_LONG).show()
-            if(a == 1)
-            {
-                Toast.makeText(this, "Logueado mi amor", Toast.LENGTH_LONG).show()
-            }
-            val i = Intent(this,register::class.java)
-            startActivity(i)
 
-        })*/
-
-
+        var btn_login = findViewById<Button>(R.id.btn_login);
         var btn = findViewById<TextView>(R.id.register);
+
+        btn_login.setOnClickListener(View.OnClickListener {
+            Toast.makeText(this, "Logueado", Toast.LENGTH_LONG).show()
+            val i = Intent(this,MainActivity::class.java)
+            startActivity(i)
+        })
 
         btn.setOnClickListener(View.OnClickListener {
             Toast.makeText(this, "Holis", Toast.LENGTH_LONG).show()
