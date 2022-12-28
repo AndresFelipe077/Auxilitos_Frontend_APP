@@ -1,5 +1,6 @@
 package com.auxilitos.aplicacion_prueba.ui.home
 
+import android.graphics.Typeface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -22,6 +23,10 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
+        /*val customFontBold: Typeface =
+            Typeface.createFromAsset(requireActivity().assets, "font/dynapuff.ttf")*/
+
         val homeViewModel =
             ViewModelProvider(this).get(HomeViewModel::class.java)
 

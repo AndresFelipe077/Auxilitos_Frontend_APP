@@ -25,6 +25,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        /*toolbar.setTitle("Material Title");
+        toolbar.setTitleTextAppearance(this,R.style.My_TextAppearance_Toolbar);*/
 
         val navView: BottomNavigationView = binding.navView
 

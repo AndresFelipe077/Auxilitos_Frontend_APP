@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Aplicacion_Prueba</string>
-    <string name="title_home">Puto</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_home">Hogar</string>
+    <string name="title_dashboard">Juegos</string>
+    <string name="title_notifications">Ajustes</string>
+
+    <string name="page_title">Hogar</string>
 </resources>

@@ -3,12 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+
+    app:startDestination="@+id/navigation_home"
+    >
 
     <fragment
         android:id="@+id/navigation_home"
+
         android:name="com.auxilitos.aplicacion_prueba.ui.home.HomeFragment"
         android:label="Logo"
+
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_navigation_home_to_navigation_dashboard"
@@ -21,12 +25,13 @@
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.auxilitos.aplicacion_prueba.ui.dashboard.DashboardFragment"
-        android:label="achuparla"
-        tools:layout="@layout/fragment_dashboard" />
+        android:label="Juegos"
+        tools:layout="@layout/fragment_dashboard"
+        />
 
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.auxilitos.aplicacion_prueba.ui.notifications.NotificationsFragment"
-        android:label="bomberito"
+        android:label="Ajustes"
         tools:layout="@layout/fragment_notifications" />
 </navigation>
