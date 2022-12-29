@@ -18,7 +18,8 @@
         android:layout_marginTop="30dp"
         android:layout_marginEnd="8dp"
         android:textAlignment="center"
-        android:textSize="20sp"
+        android:textSize="30sp"
         android:fontFamily="@font/dynapuff"
+        android:text="Hey Whats up"
         />
 </LinearLayout>

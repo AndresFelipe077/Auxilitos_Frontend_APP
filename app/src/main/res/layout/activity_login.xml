@@ -8,6 +8,7 @@
     android:fontFamily="@font/dynapuff"
     android:orientation="vertical"
     android:background="@drawable/fondo_login"
+    app:titleTextAppearance="@style/noActionbar"
     >
 
 

@@ -10,21 +10,6 @@
     android:orientation="vertical"
     >
 
-    <!--<com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/topAppBar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:title="@string/page_title"
-            style="@style/MyToolbar"
-
-            />
-
-    </com.google.android.material.appbar.AppBarLayout>
--->
     <TextView
         android:id="@+id/text_home"
         android:layout_width="match_parent"

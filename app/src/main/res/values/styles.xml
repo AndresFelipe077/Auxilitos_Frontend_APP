@@ -15,6 +15,10 @@
         <item name="android:fontFamily">@font/dynapuff</item>
     </style>
 
+    <style name="noActionbar" parent="Theme.Material3.Light.NoActionBar">
+        <item name="android:fontFamily">@font/dynapuff</item>
+    </style>
+
     <!--<style name="noActionbar" parent="Theme.Material3.Light.NoActionBar">
         <item name="colorPrimary">@color/white</item>
         <item name="colorPrimaryDark">@color/white</item>

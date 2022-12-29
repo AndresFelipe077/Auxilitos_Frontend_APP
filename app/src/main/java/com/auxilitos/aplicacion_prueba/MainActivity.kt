@@ -1,11 +1,13 @@
 package com.auxilitos.aplicacion_prueba
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import android.widget.Toolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -14,6 +16,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.auxilitos.aplicacion_prueba.databinding.ActivityMainBinding
+import android.widget.Button
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,6 +27,8 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
 
         /*toolbar.setTitle("Material Title");
         toolbar.setTitleTextAppearance(this,R.style.My_TextAppearance_Toolbar);*/
@@ -40,6 +45,19 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+
+
+
+        val btn_profile = findViewById<Button>(R.id.btn_profile)
+
+
+        btn_profile.setOnClickListener(View.OnClickListener {
+            Toast.makeText(this, "Perfil", Toast.LENGTH_LONG).show()
+            val i = Intent(this,Profile::class.java)
+            startActivity(i)
+        })
+
     }
 
     @Override

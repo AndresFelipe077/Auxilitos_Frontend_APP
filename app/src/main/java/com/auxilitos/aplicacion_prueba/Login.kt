@@ -16,8 +16,8 @@ class Login : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        var btn_login = findViewById<Button>(R.id.btn_login);
-        var btn = findViewById<TextView>(R.id.register);
+        val btn_login = findViewById<Button>(R.id.btn_login);
+        val btn = findViewById<TextView>(R.id.register);
 
         btn_login.setOnClickListener(View.OnClickListener {
             Toast.makeText(this, "Logueado", Toast.LENGTH_LONG).show()
