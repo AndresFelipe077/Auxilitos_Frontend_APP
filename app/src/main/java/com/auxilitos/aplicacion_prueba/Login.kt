@@ -40,6 +40,9 @@ class Login : AppCompatActivity() {
 
         binding.btnMotionToast.setOnClickListener{
 
+            val i = Intent(this,MainActivity::class.java)
+            startActivity(i)
+
             MotionToast.darkColorToast(
                 this,
                 "Upload Completed!",
@@ -48,9 +51,6 @@ class Login : AppCompatActivity() {
                 MotionToast.GRAVITY_TOP,
                 MotionToast.LONG_DURATION,
                 ResourcesCompat.getFont(this,R.font.dynapuff)
-
-
-
 
             /*MotionToast.darkToast(
                 this,
