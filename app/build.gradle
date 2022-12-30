@@ -61,6 +61,9 @@ dependencies {
     /*Card*/
     implementation("androidx.cardview:cardview:1.0.0")
 
+    /*Motion Toast*/
+
+
 
 
 }

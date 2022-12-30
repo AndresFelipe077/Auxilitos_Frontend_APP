@@ -7,6 +7,7 @@
     tools:context=".Profile"
     android:orientation="vertical"
     android:background="@drawable/fondo_login"
+    android:accessibilityPaneTitle="a"
 
     >
 
@@ -19,8 +20,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:layout_margin="10dp">
 
+            <!--Parte de arriba-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -71,10 +74,12 @@
 
             </LinearLayout>
 
+            <!--descripcion-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:layout_marginTop="10dp"
                 >
 
                 <androidx.cardview.widget.CardView
@@ -89,14 +94,15 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Descripción"
-                        android:layout_margin="4dp"
+                        android:textSize="17sp"
+                        android:textStyle="bold"
                         />
 
                     <TextView
                         android:id="@+id/description"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="..."
+                        android:text="Mi hijo es un niño adorable, le encanta ayudar a los demas es una personas increible, tiene 7 años."
                         android:layout_margin="20dp"
                         />
 
@@ -105,15 +111,15 @@
 
             </LinearLayout>
 
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_margin="7dp"
-                    >
+            <!--Nombre-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_margin="7dp"
+                android:layout_marginTop="10dp"
+                >
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -135,17 +141,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="15dp"
-                        android:text="Andres Felipe"
+                        android:text="Andres Felipe Pizo Luligo carmesia de pamplejo"
                         android:layout_gravity="center"
                         />
                     </androidx.cardview.widget.CardView>
                 </LinearLayout>
 
-
-
-
-
-                <LinearLayout
+            <!--Correo-->
+            <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -172,17 +175,18 @@
                         android:id="@+id/correo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="felipe@gmail.com"
+                        android:text="felpilgamesstudio@gmail.com"
                         android:layout_gravity="center"
                         android:layout_margin="15dp"
+                        android:gravity="center"
                         />
 
                     </androidx.cardview.widget.CardView>
 
                 </LinearLayout>
 
-
-                <LinearLayout
+            <!--Genero-->
+            <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -194,7 +198,7 @@
                         android:id="@+id/genero"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Masculino"
+                        android:text="Genero"
                         android:layout_marginStart="-100dp"
                         android:layout_margin="15dp"
                         />
@@ -210,7 +214,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Genero"
+                        android:text="Masculino"
                         android:layout_margin="15dp"
                         android:layout_gravity="center"
                         />
@@ -219,7 +223,8 @@
 
                 </LinearLayout>
 
-                <LinearLayout
+            <!--Fecha-->
+            <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -253,6 +258,177 @@
                     </androidx.cardview.widget.CardView>
                 </LinearLayout>
 
+            <!--Retos-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bordernavigation"
+                android:padding="10dp"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bordernavigation"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Juegos "
+                        android:textColor="#0404F5"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Retos ganados: "
+                        />
+
+                    <TextView
+                        android:id="@+id/juegoGanados"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10"
+                        />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Trivias"
+                    />
+
+                <ProgressBar
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    tools:progress="80"
+                    android:progressTint="#0404F5"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Adivinar objetos"
+                    />
+
+                <ProgressBar
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    tools:progress="80"
+                    android:progressTint="#0404F5"/>
+
+            </LinearLayout>
+
+            <!--Retos-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bordernavigation"
+                android:padding="10dp"
+                android:layout_marginTop="10dp"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bordernavigation"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Juegos por ganar"
+                        android:textColor="#0818F2"
+                        />
+
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Trivias"
+                    />
+
+                <ProgressBar
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    tools:progress="20"
+                    android:progressTint="#0404F5"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Adivinar objetos"
+                    />
+
+                <ProgressBar
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    tools:progress="20"
+                    android:progressTint="#0404F5"/>
+
+            </LinearLayout>
+
+            <!--Doble factor-->
+            <androidx.cardview.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/card_view5"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card_view:cardCornerRadius="10dp"
+                android:layout_marginTop="10dp"
+                >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="10dp"
+
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Habilita la autenticación de dis factores"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Pide ayuda a tus padres, se te solicitará un token seguro y aleatorio, lo podrás recuperar con la aplicación Google Authenticator con el teléfono"
+                    android:layout_marginTop="5dp"
+                    />
+
+                <Button
+                    android:id="@+id/btn_login"
+                    style="@style/Widget.Material3.Button.ElevatedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/dynapuff"
+                    android:text="Habilitar"
+                    android:layout_marginTop="10sp"
+                    android:backgroundTint="#2ACD05"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    />
+
+            </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
 
 
         </LinearLayout>
