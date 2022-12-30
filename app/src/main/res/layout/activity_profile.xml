@@ -7,8 +7,6 @@
     tools:context=".Profile"
     android:orientation="vertical"
     android:background="@drawable/fondo_login"
-    android:accessibilityPaneTitle="a"
-
     >
 
 
