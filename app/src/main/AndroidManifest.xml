@@ -13,9 +13,22 @@
         android:theme="@style/actionbar"
         tools:targetApi="31">
         <activity
+            android:name=".SplashScreen"
+            android:exported="true"
+            android:theme="@style/Theme.App.Starting">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".Profile"
-            android:label="Ajustes"
-            android:exported="false">
+            android:exported="false"
+            android:label="Ajustes">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -30,13 +43,9 @@
         </activity>
         <activity
             android:name=".Login"
-            android:exported="true"
+            android:exported="false"
             android:theme="@style/Theme.Material3.Light.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
             <meta-data
                 android:name="android.app.lib_name"

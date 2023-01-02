@@ -58,34 +58,6 @@
                     />
 
 
-                <!--<EditText
-                    android:id="@+id/email"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="15"
-                    android:fontFamily="@font/dynapuff"
-                    android:hint="Correo"
-                    android:inputType="textEmailAddress"
-                    android:textColor="#0511F2"
-                    android:textColorHint="#0511F2"
-                    android:layout_marginTop="15sp"
-                    android:layout_margin="10sp"
-                    />-->
-
-                <!--<EditText
-                    android:id="@+id/password"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="15"
-                    android:fontFamily="@font/dynapuff"
-                    android:hint="Contraseña"
-                    android:inputType="textPassword"
-                    android:textColor="#0511F2"
-                    android:textColorHint="#0511F2"
-                    android:layout_marginTop="15sp"
-                    android:layout_margin="10sp"
-                    />-->
-
                 <com.google.android.material.textfield.TextInputLayout
 
                     android:id="@+id/correo"
