@@ -60,7 +60,6 @@
 
                 <com.google.android.material.textfield.TextInputLayout
 
-                    android:id="@+id/correo"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -76,10 +75,12 @@
                     app:boxCornerRadiusTopEnd="10dp"
                     app:boxCornerRadiusTopStart="10dp"
                     app:hintAnimationEnabled="true"
+                    app:errorEnabled="true"
+                    app:errorIconDrawable="@null"
                     >
 
                     <com.google.android.material.textfield.TextInputEditText
-
+                        android:id="@+id/email"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/dynapuff"
@@ -92,8 +93,6 @@
 
 
                 <com.google.android.material.textfield.TextInputLayout
-
-                    android:id="@+id/password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:endIconMode="password_toggle"
@@ -110,10 +109,13 @@
                     app:boxCornerRadiusBottomEnd="10dp"
                     app:boxCornerRadiusTopEnd="10dp"
                     app:boxCornerRadiusTopStart="10dp"
+                    app:errorEnabled="true"
+                    app:errorIconDrawable="@null"
+                    app:passwordToggleEnabled="true"
                     >
 
                 <com.google.android.material.textfield.TextInputEditText
-
+                    android:id="@+id/password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
