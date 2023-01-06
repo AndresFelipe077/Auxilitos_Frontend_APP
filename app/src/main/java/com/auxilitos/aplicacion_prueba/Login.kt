@@ -3,37 +3,31 @@ package com.auxilitos.aplicacion_prueba
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
-import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.res.ResourcesCompat
 import androidx.core.util.PatternsCompat
-import com.auxilitos.aplicacion_prueba.Interface.ApiService
-import com.auxilitos.aplicacion_prueba.Model.LoginApi
+import com.auxilitos.aplicacion_prueba.client.ApiClient
 import com.auxilitos.aplicacion_prueba.databinding.ActivityLoginBinding
+import com.auxilitos.aplicacion_prueba.model.request.LoginRequest
+import com.auxilitos.aplicacion_prueba.model.response.LoginResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import www.sanju.motiontoast.MotionToast
-import www.sanju.motiontoast.MotionToastStyle
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.util.regex.Pattern
 
 
-@Suppress("CAST_NEVER_SUCCEEDS")
+@Suppress("CAST_NEVER_SUCCEEDS", "UNCHECKED_CAST", "DEPRECATION")
 class Login : AppCompatActivity() {
-
+    //http://192.168.1.106:8000/api/login/
     private lateinit var binding: ActivityLoginBinding
 
-    //private lateinit var email: EditText
+    private lateinit var email: EditText
     private lateinit var password: EditText
     private lateinit var btn_login: Button
-    private val servicio: ApiService =
-        getRetrofit().create(ApiService::class.java)//Config.getRetrofit.create(ApiService::class.java)
-
+    var toast = ToastCustom()
 
     @RequiresApi(Build.VERSION_CODES.P)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,97 +36,91 @@ class Login : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)//R.layout.activity_login
 
-        btn_login = findViewById<Button>(R.id.btn_login);
-        val btn = findViewById<TextView>(R.id.register);
-        //email = findViewById(R.id.email)
-        password = findViewById(R.id.password)
-
-        binding.btnMotionToast.setOnClickListener {
-
-            val i = Intent(this, MainActivity::class.java)
-            startActivity(i)
-
-            MotionToast.darkColorToast(
-                this,
-                "Upload Completed!",
-                "a",
-                MotionToastStyle.SUCCESS,
-                MotionToast.GRAVITY_TOP,
-                MotionToast.LONG_DURATION,
-                ResourcesCompat.getFont(this, R.font.dynapuff)
-
-                /*MotionToast.darkToast(
-                this,
-                "Upload Completed!",
-                "a",
-                MotionToastStyle.SUCCESS,
-                MotionToast.GRAVITY_BOTTOM,
-                MotionToast.LONG_DURATION,
-                ResourcesCompat.getFont(this,R.font.dynapuff)*/
+        hideKeyBoard()
 
 
-                /*MotionToast.createColorToast(
-                this,
-                "Exito!",
-                "a",
-                MotionToastStyle.SUCCESS,
-                MotionToast.GRAVITY_BOTTOM,
-                MotionToast.LONG_DURATION,
-                ResourcesCompat.getFont(this,R.font.dynapuff)*/
+       /* btn_login = findViewById(R.id.btn_login)
+        val btn = findViewById<TextView>(R.id.register)
+        email = findViewById(R.id.email)
+        password = findViewById(R.id.password)*/
 
-
-                /*MotionToast.createToast(
-                this,
-                null,
-                "Se ha logueado exitosamente",
-                MotionToastStyle.SUCCESS,
-                MotionToast.GRAVITY_BOTTOM,
-                MotionToast.LONG_DURATION,
-                ResourcesCompat.getFont(this,R.font.dynapuff)*/
-            )
-
-        }
-
-        /*btn_login.setOnClickListener {
-
-
-            if ((email.text.toString().isEmpty()) and (password.text.toString().isEmpty())) {
-
-                MotionToast.darkColorToast(
-                    this,
-                    "Upload Completed!",
-                    "Vacio",
-                    MotionToastStyle.SUCCESS,
-                    MotionToast.GRAVITY_TOP,
-                    MotionToast.LONG_DURATION,
-                    ResourcesCompat.getFont(this, R.font.dynapuff)
-                )
-
-            } else {
-                MotionToast.darkColorToast(
-                    this,
-                    "Upload Completed!",
-                    "lleno",
-                    MotionToastStyle.SUCCESS,
-                    MotionToast.GRAVITY_TOP,
-                    MotionToast.LONG_DURATION,
-                    ResourcesCompat.getFont(this, R.font.dynapuff)
-                )
-            }
-
-
-        }
-
-        btn.setOnClickListener(View.OnClickListener {
-            Toast.makeText(this, "Vista de registro", Toast.LENGTH_LONG).show()
+        /*btn.setOnClickListener {
+            toast.toastSuccess(this,"Registro", "Vista de registro")
             val i = Intent(this, register::class.java)
             startActivity(i)
+        }*/
 
-        })*/
+        binding.btnlogin.setOnClickListener{
+            //validate()
+            initData()
+        }
 
-        binding.btnLogin.setOnClickListener{ validate() }
+
+
 
     }//Fin Activity
+
+
+
+
+    private fun initData()
+    {
+        clickListener()
+    }
+
+    private fun clickListener()
+    {
+        binding.btnlogin.setOnClickListener{
+            getInputs()
+        }
+    }
+
+    private fun getInputs()
+    {
+        val email = binding.etUsername.text.toString()
+        val password = binding.edPassword.text.toString()
+
+        if(email.isNotEmpty() && password.isNotEmpty())
+        {
+            loginUser(email, password)
+        }
+        else
+        {
+            toast.toastSuccess(this, "requiere", "All inputs required ...")
+        }
+
+
+
+
+    }
+
+    private fun loginUser(email: String, password: String)
+    {
+        val loginRequest = LoginRequest(email,password)
+        val apiCall = ApiClient.getApiService().loginUser(loginRequest)
+        apiCall.enqueue(object : Callback<LoginResponse>{
+            override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
+                if(response.isSuccessful)
+                {
+                    startActivity(Intent(this@Login, MainActivity::class.java))
+                }
+                else
+                {
+                    toast.toastError(this@Login, "Error", "Corrige tus credenciales")
+                }
+            }
+
+            override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+                toast.toastError(this@Login, "Error", "Ha ocurrido un error inesperado" + t.localizedMessage)
+            }
+
+        })
+
+
+    }
+
+
+
 
     private fun validate(){
         val result = arrayOf(validateEmail(), validatePassword())
@@ -141,43 +129,51 @@ class Login : AppCompatActivity() {
             return
         }
 
-        Toast.makeText(this, "Success", Toast.LENGTH_LONG).show()
 
     }
 
-    private fun getRetrofit(): Retrofit {
+    private fun validateEmail():Boolean {
+    val email = binding.etUsername.text.toString()
+    return if(email.isEmpty()){
+        binding.etUsername.error = "El campo del correo no puede estar vacio"
+        false
+    }else if(!PatternsCompat.EMAIL_ADDRESS.matcher(email).matches()) {
+        binding.etUsername.error = "Por favor ingresa un correo valido"
+        false
+    } else {
+        binding.etUsername.error = null
+        true
+    }
+}
+
+    private fun validatePassword(): Boolean {
+    val password = binding.edPassword.text.toString()
+    return if(password.isEmpty())
+    {
+        binding.edPassword.error = "El campo contraseña no debe estar vacio"
+        false
+    } else {
+        binding.edPassword.error = null
+        true
+    }
+}
+
+    private fun hideKeyBoard()
+    {
+        val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(binding.viewRoot.windowToken, 0)
+    }
+
+
+    private fun getRetrofit(): Retrofit
+    {
         return Retrofit.Builder()
-            .baseUrl("http://192.168.1.106/Mis-Primeros-Auxilitos-Jet/public/api/login/")
+            .baseUrl("http://192.168.1.106:8000/api/login/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
-    //Fin getRetrofit
-
-    private fun validateEmail():Boolean {
-        val email = binding.email.text.toString()
-        return if(email.isEmpty()){
-            binding.email.error = "El campo del correo no puede estar vacio"
-            false
-        }else if(!PatternsCompat.EMAIL_ADDRESS.matcher(email).matches()) {
-            binding.email.error = "Por favor ingresa un correo valido"
-            false
-        } else {
-            binding.email.error = null
-            true
-        }
-    }
-
-    private fun validatePassword(): Boolean {
-        val password = binding.password.text.toString()
-        return if(password.isEmpty())
-        {
-            binding.password.error = "El campo contraseña no debe estar vacio"
-            false
-        } else {
-            binding.password.error = null
-            true
-        }
-    }
 
 
-}//Fin todo
+
+}//Fin
+
